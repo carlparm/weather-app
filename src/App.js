@@ -22,7 +22,7 @@ function App() {
     <div className="app">
       <main>
         <div className="search-box">
-          <input type="text" className="search-bar" placeholder="Where are you?" />
+          <input type="text" className="search-bar" placeholder="Where are you?" onChange={e => setQuery(e.target.value)} value={query} onKeyPress={search}/>
         </div>
         <div className="location-box">
           <div className="location">Washington, DC</div>

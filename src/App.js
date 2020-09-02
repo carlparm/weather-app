@@ -1,7 +1,5 @@
 import React from 'react';
-const api = {
-  key: '53ceecdbb29519cd8bf11ca375ed4f75',
-}
+
 
 class App extends React.Component {
 
@@ -12,11 +10,19 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-      fetch(`api.openweathermap.org/data/2.5/weather?lat=38.879700&lon=-77.025820&appid=${api.key}`)
-        .then(res => res.json())
-        .then(result => {
-          console.log(result);
-        });
+    fetch("https://dark-sky.p.rapidapi.com/38.879700,-77.025818?lang=en&units=auto", {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": "dark-sky.p.rapidapi.com",
+        "x-rapidapi-key": "3e3f7f2f29msh9dbbf38143a9de3p12d253jsn397d037c0019"
+      }
+    })
+    .then(response => {
+      console.log(response.json());
+    })
+    .catch(err => {
+      console.log(err);
+    });
   }
 
   dateBuilder = (d) => {
